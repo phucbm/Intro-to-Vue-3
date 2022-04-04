@@ -4,7 +4,9 @@ const app = Vue.createApp({
             product: 'Socks',
             description: 'Lorem ipsum',
             image: './assets/images/socks_blue.jpg',
-            url: '#'
+            url: '#',
+            inStock: true,
+            inventory: 15
         }
     }
 }).mount('#app');
