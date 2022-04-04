@@ -7,7 +7,7 @@ const app = Vue.createApp({
             image: './assets/images/socks_blue.jpg',
             url: '#',
             inStock: true,
-            inventory: 15,
+            inventory: 5,
             details: ['50% cotton', '30% wool', '20% polyester'],
             variants: [
                 {id: 123, color: 'green', image: './assets/images/socks_green.jpg',},
@@ -18,6 +18,11 @@ const app = Vue.createApp({
     methods: {
         removeFromCart(){
             this.cart--;
+            this.inventory++
+        },
+        addToCart(){
+            this.cart++
+            this.inventory--
         }
     }
 }).mount('#app');

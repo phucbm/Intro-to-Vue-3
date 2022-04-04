@@ -23,8 +23,15 @@
         <img v-bind:src="image" :alt="product">
     </a>
 
-    <button v-on:click="cart++">Add to cart</button>
-    <button v-on:click="removeFromCart">Remove from cart</button>
+    <button
+            v-on:click="addToCart"
+            :disabled="inventory<=0"
+            :class="[inventory<=0?'disabledButton':'']">Add to cart
+    </button>
+    <button v-on:click="removeFromCart"
+            :disabled="cart===0"
+            :class="[cart===0?'disabledButton':'']">Remove from cart
+    </button>
 
     <ul v-for="variant in variants">
         <li>
