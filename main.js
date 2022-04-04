@@ -6,7 +6,12 @@ const app = Vue.createApp({
             image: './assets/images/socks_blue.jpg',
             url: '#',
             inStock: true,
-            inventory: 15
+            inventory: 15,
+            details: ['50% cotton', '30% wool', '20% polyester'],
+            variants: [
+                {id: 123, color: 'green'},
+                {id: 234, color: 'blue'}
+            ]
         }
     }
 }).mount('#app');
