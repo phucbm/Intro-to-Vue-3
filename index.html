@@ -12,6 +12,9 @@
 <div id="app">
     <h1>{{product}}</h1>
     <p>{{description}}</p>
+    <a :href="url" :title="product">
+        <img v-bind:src="image" :title="product">
+    </a>
 </div>
 
 <!-- Import App -->
