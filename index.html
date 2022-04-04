@@ -4,27 +4,36 @@
     <meta charset="UTF-8"/>
     <title>Vue Mastery</title>
     <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="stylesheet" href="assets/css/custom-style.css">
     <!-- Import Vue.js -->
     <script src="assets/js/vue.global.js"></script>
 </head>
 <body>
 <div id="app">
+    <strong>Cart: {{cart}}</strong>
+
     <h1>{{product}}</h1>
 
     <p v-if="inventory > 10">In stock</p>
     <p v-else>Out of stock</p>
 
     <p>{{description}}</p>
-    <a :href="url" :title="product">
+    <a :href="url" :title="product" class="product-image">
         <img v-bind:src="image" :alt="product">
     </a>
 
+    <button v-on:click="cart++">Add to cart</button>
+    <button v-on:click="removeFromCart">Remove from cart</button>
+
+    <ul v-for="variant in variants">
+        <li>
+            <span @mouseover="image = variant.image">{{variant.color}}</span>
+        </li>
+    </ul>
+
     <ul v-for="detail in details">
         <li>{{detail}}</li>
-    </ul>
-    <ul v-for="variant in variants">
-        <li>{{variant.color}}</li>
     </ul>
 </div>
 
