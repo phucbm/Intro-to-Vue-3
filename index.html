@@ -13,38 +13,15 @@
 <div id="app">
     <strong>Cart: {{cart}}</strong>
 
-    <h1>{{title}}</h1>
-
-    <p v-if="inventory > 10">In stock</p>
-    <p v-else>Out of stock</p>
-
-    <p>{{description}}</p>
-    <a :href="url" :title="product" class="product-image">
-        <img v-bind:src="image" :alt="product">
-    </a>
-
-    <button
-            v-on:click="addToCart"
-            :disabled="inventory<=0"
-            :class="[inventory<=0?'disabledButton':'']">Add to cart
-    </button>
-    <button v-on:click="removeFromCart"
-            :disabled="cart===0"
-            :class="[cart===0?'disabledButton':'']">Remove from cart
-    </button>
-
-    <ul v-for="variant in variants">
-        <li>
-            <span @mouseover="image = variant.image">{{variant.color}}</span>
-        </li>
-    </ul>
-
-    <ul v-for="detail in details">
-        <li>{{detail}}</li>
-    </ul>
+    <product-display :cart="cart"></product-display>
 </div>
 
 <!-- Import App -->
 <script src="./main.js"></script>
+<script src="./components/ProductDisplay.js"></script>
+
+<script>
+    app.mount('#app');
+</script>
 </body>
 </html>
