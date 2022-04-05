@@ -24,5 +24,10 @@ const app = Vue.createApp({
             this.cart++
             this.inventory--
         }
+    },
+    computed: {
+        title(){
+            return this.product + ' Hooray ' + this.inventory;
+        }
     }
 }).mount('#app');
