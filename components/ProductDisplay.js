@@ -30,6 +30,8 @@ app.component('product-display', {
     <ul v-for="detail in details">
         <li>{{detail}}</li>
     </ul>
+    <comment-list :comments="comments"></comment-list>
+    <comment-form @comment-submitted="addComment"></comment-form>
     `,
     data(){
         return {
@@ -43,7 +45,8 @@ app.component('product-display', {
             variants: [
                 {id: 123, color: 'green', image: './assets/images/socks_green.jpg',},
                 {id: 234, color: 'blue', image: './assets/images/socks_blue.jpg',}
-            ]
+            ],
+            comments: []
         }
     },
     emits: ['remove-from-cart', 'add-to-cart'],
@@ -54,6 +57,10 @@ app.component('product-display', {
         }, addToCart(){
             this.$emit('add-to-cart')
             this.inventory--
+        },
+        addComment(comment){
+            console.log(comment)
+            this.comments.push(comment)
         }
     },
     computed: {
