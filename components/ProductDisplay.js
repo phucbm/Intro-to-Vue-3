@@ -46,13 +46,13 @@ app.component('product-display', {
             ]
         }
     },
+    emits: ['remove-from-cart', 'add-to-cart'],
     methods: {
         removeFromCart(){
-            this.cart--;
+            this.$emit('remove-from-cart')
             this.inventory++
-        },
-        addToCart(){
-            this.cart++
+        }, addToCart(){
+            this.$emit('add-to-cart')
             this.inventory--
         }
     },

@@ -13,7 +13,7 @@
 <div id="app">
     <strong>Cart: {{cart}}</strong>
 
-    <product-display :cart="cart"></product-display>
+    <product-display :cart="cart" @add-to-cart="addToCart" @remove-from-cart="removeFromCart"></product-display>
 </div>
 
 <!-- Import App -->
